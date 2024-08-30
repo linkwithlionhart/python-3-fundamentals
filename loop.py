@@ -113,3 +113,15 @@
   print(can_ride_coaster)
 
 #13/13 Review
+# Your code below:
+  single_digits = range(0, 10)
+  squares = []
+
+  for digit in single_digits:
+    print(digit)
+    squares.append(digit**2)
+
+  print(squares)
+
+  cubes = [digit ** 3 for digit in single_digits]
+  print(cubes)
