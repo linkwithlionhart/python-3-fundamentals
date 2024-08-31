@@ -171,5 +171,3 @@ def destination_setup(origin, destination, estimated_time, mode_of_transport="Ca
   print("It will take approximately " + str(estimated_time) + " hours")
 
 destination_setup("Manila", "Vancouver", estimate, mode_of_transport="plane")
-
-
