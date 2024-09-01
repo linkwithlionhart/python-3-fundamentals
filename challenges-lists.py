@@ -38,13 +38,13 @@
 
   # Refactor
   def larger_list(my_list1, my_list2):
-  length1 = len(my_list1)
-  length2 = len(my_list2)
+    length1 = len(my_list1)
+    length2 = len(my_list2)
 
-  if length1 >= length2:
-    return my_list1[-1]
-  else:
-    return my_list2[-1]
+    if length1 >= length2:
+      return my_list1[-1]
+    else:
+      return my_list2[-1]
 
   # Refactor 2
   def larger_list(my_list1, my_list2):
