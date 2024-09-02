@@ -112,3 +112,22 @@
 
   #Uncomment the line below when your function is done
   print(same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5]))
+
+# Reversed List
+  #Write your function here
+    def reversed_list(lst1, lst2):
+      for x,y in zip(lst1, reversed(lst2)):
+        if x != y:
+          return False
+      return True
+
+    #Uncomment the lines below when your function is done
+    print(reversed_list([1, 2, 3], [3, 2, 1]))
+    print(reversed_list([1, 5, 3], [3, 2, 1]))
+
+  # Recommended solution
+  def reversed_list(lst1, lst2):
+  for index in range(len(lst1)):
+    if lst1[index] != lst2[len(lst2) - 1 - index]:
+      return False
+  return True
