@@ -55,3 +55,60 @@
   #Uncomment the line below when your function is done
   print(exponents([2, 3, 4], [1, 2, 3]))
  
+# Larger Sum
+  #Write your function here
+  def larger_sum(lst1, lst2):
+    sum1 = 0
+    sum2 = 0
+
+    for num in lst1:
+      sum1 += num
+    
+    for num in lst2:
+      sum2 += num
+
+    if sum1 > sum2:
+      return lst1
+    elif sum2 > sum1:
+      return lst2
+    else:
+      return lst1
+
+  #Uncomment the line below when your function is done
+  print(larger_sum([1, 9, 5], [2, 3, 7]))
+
+# Over 9000
+  def over_nine_thousand(lst):
+    num_sum = 0
+    for num in lst:
+      num_sum += num
+      if num_sum > 9000:
+        break
+    return num_sum
+
+  #Uncomment the line below when your function is done
+  print(over_nine_thousand([8000, 900, 120, 5000]))
+
+# Max Num
+  #Write your function here
+  def max_num(nums):
+    placeholder = nums[0]
+    for i in nums:
+      if i > placeholder:
+        placeholder = i
+    return placeholder
+
+  #Uncomment the line below when your function is done
+  print(max_num([50, -10, 0, 75, 20]))
+
+# Same Values
+  #Write your function here
+  def same_values(lst1, lst2):
+    matches = []
+    for x in range(len(lst1)):
+      if lst1[x] == lst2[x]:
+        matches.append(x)
+    return matches
+
+  #Uncomment the line below when your function is done
+  print(same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5]))
