@@ -54,26 +54,64 @@ of the overhanging embankment."""
 spring_storm_lines = spring_storm_text.split('\n')
 print(spring_storm_lines)
 
-#6/13 
+#6/13 ' '.join(list)
+reapers_line_one_words = ["Black", "reapers", "with", "the", "sound", "of", "steel", "on", "stones"]
 
+reapers_line_one = ' '.join(reapers_line_one_words)
+print(reapers_line_one)
 
-#7/13
+#7/13 '\n'.join(list)
+winter_trees_lines = ['All the complicated details', 'of the attiring and', 'the disattiring are completed!', 'A liquid moon', 'moves gently among', 'the long branches.', 'Thus having prepared their buds', 'against a sure winter', 'the wise trees', 'stand sleeping in the cold.']
 
+winter_trees_full = '\n'.join(winter_trees_lines)
 
-#8/13
+print(winter_trees_full)
 
+#8/13 string.strip()
+love_maybe_lines = ['Always    ', '     in the middle of our bloodiest battles  ', 'you lay down your arms', '           like flowering mines    ','\n' ,'   to conquer me home.    ']
 
-#9/13
+love_maybe_lines_stripped = []
+for line in love_maybe_lines:
+  love_maybe_lines_stripped.append(line.strip())
 
+print(love_maybe_lines_stripped)
 
-#10/13
+love_maybe_full = '\n'.join(love_maybe_lines_stripped)
+print(love_maybe_full)
 
+#9/13 string.replace(replacee, replacer)
+toomer_bio = \
+"""
+Nathan Pinchback Tomer, who adopted the name Jean Tomer early in his literary career, was born in Washington, D.C. in 1894. Jean is the son of Nathan Tomer was a mixed-race freedman, born into slavery in 1839 in Chatham County, North Carolina. Jean Tomer is most well known for his first book Cane, which vividly portrays the life of African-Americans in southern farmlands.
+"""
+toomer_bio_fixed = toomer_bio.replace('Tomer', 'Toomer')
+print(toomer_bio_fixed)
 
-#11/13
+#10/13 string.find('target') returns the index value of the first match it finds
+god_wills_it_line_one = "The very earth will disown you"
 
+disown_placement = god_wills_it_line_one.find('disown')
+print(disown_placement)
+
+#11/13 string{}.format(variable1, variable2, etc.)
+def poem_title_card(title, poet):
+  return 'The poem "{}" is written by {}.'.format(title, poet)
+
+print(poem_title_card("I Hear America Singing", "Walt Whitman"))
 
 #12/13
+def poem_description(publishing_date, author, title, original_work):
+  poem_desc = "The poem {title} by {author} was originally published in {original_work} in {publishing_date}.".format(publishing_date=publishing_date, author=author, title=title, original_work=original_work)
+  return poem_desc
 
+my_beard_description = poem_description(
+  author = "Shel Silverstein",
+  title = "My Beard",
+  original_work = "Where the Sidewalk Ends",
+  publishing_date = "1974"
+)
+
+print(my_beard_description)
 
 #13/13
 
