@@ -136,4 +136,11 @@ for transaction in transactions_clean:
   sales.append(transaction[1])
   thread_sold.append(transaction[2])
   dates.append(transaction[3])
-print(customers, sales, thread_sold)
+# print(customers, sales, thread_sold)
+
+total_sales = 0
+for sale in sales:
+  total_sales += (float(sale.strip('$')))
+total_sales = round(total_sales, 2)
+print(f'Today, Thread Shed made ${total_sales} in sales.')
+
