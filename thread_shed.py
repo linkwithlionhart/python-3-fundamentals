@@ -142,5 +142,30 @@ total_sales = 0
 for sale in sales:
   total_sales += (float(sale.strip('$')))
 total_sales = round(total_sales, 2)
-print(f'Today, Thread Shed made ${total_sales} in sales.')
+# print(f'Today, Thread Shed made ${total_sales} in sales.')
 
+# print(thread_sold)
+thread_sold_split = []
+for color in thread_sold:
+  if '&' not in color:
+    thread_sold_split.append(color)
+  else:
+    split_colors = color.split('&')
+    # print(split_color)
+    for more_color in split_colors:
+      thread_sold_split.append(more_color)
+# print(thread_sold_split)
+
+def color_count(color):
+  count = 0
+  for thread_color in thread_sold_split:
+    if color == thread_color:
+      count += 1
+  return count
+# print(color_count('white')) # expected: 28
+
+colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
+
+for color in colors:
+  count = color_count(color)
+  print('For the color, {COLOR}. We sold: {COUNT} threads.'.format(COUNT=count, COLOR=color))
