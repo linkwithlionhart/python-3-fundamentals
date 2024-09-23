@@ -1,7 +1,7 @@
 from datetime import datetime as dt
 from decimal import Decimal
 from random import randint, choice
-from custom_module.py import generate_time_travel_message
+from custom_module import generate_time_travel_message
 
 today = dt.strftime(dt.now(), '%b %d, %Y')
 time = dt.strftime(dt.now(), '%I:%M%p')
