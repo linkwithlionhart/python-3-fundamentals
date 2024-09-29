@@ -32,3 +32,27 @@ print(setup)
 print(punchline)
 
 #7/13 What is a CSV file?
+with open('logger.csv') as log_csv_file:
+  log_csv = log_csv_file.read()
+
+print(log_csv)
+
+#8/13 reading a file with csv module, DictReader method, and newline='' arg
+import csv 
+
+with open('cool_csv.csv', newline='') as cool_csv_file:
+  cool_csv_dict = csv.DictReader(cool_csv_file)
+  for row in cool_csv_dict:
+    print(row['Cool Fact'])
+
+#9/13 reading Different Types of CSV Files with csv.DictReader(file, delimiter='symbol')
+import csv 
+
+isbn_list = []
+with open('books.csv', newline='') as books_csv:
+  books_reader = csv.DictReader(books_csv, delimiter='@')
+  for row in books_reader:
+    isbn_list.append(row['ISBN'])
+print(isbn_list)
+
+#10/13
