@@ -69,7 +69,7 @@ with open('logger.csv', 'w') as logger_csv:
   for item in access_log:
     log_writer.writerow(item)
 
-#11/13 Reading a JSON File by parsing purchase_json using json.load()
+#11/13 reading a JSON file by parsing purchase_json using json.load()
 import json
 
 with open('message.json') as message_json:
@@ -78,5 +78,24 @@ with open('message.json') as message_json:
 print(message['text'])
 print(message['secret text'])
 
-#12/13
+#12/13 writing a JSON file with json.dump(turn_to_json, json_file)
+data_payload = [
+  {'interesting message': 'What is JSON? A web application\'s little pile of secrets.',
+   'follow up': 'But enough talk!'}
+]
+
+import json 
+
+with open('data.json', 'w') as data_json:
+  json.dump(data_payload, data_json)
+
+#13/13 review
+"""
+Open up file objects using open() and with.
+Read a file’s full contents using Python’s .read() method.
+Read a file line-by-line using .readline() and .readlines()
+Create new files by opening them in write-mode.
+Append to a file non-destructively by opening a file in append-mode.
+Apply all of the above to different types of data-carrying files including CSV and JSON!
+"""
 
