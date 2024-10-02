@@ -8,9 +8,21 @@ a different hacker whose nefarious deeds could be very conveniently halted by Th
 """
 import csv
 
+# Reading in the Passwords
 compromised_users = []
-fields = ["Username", "Password"]
+# fields = ["Username", "Password"]
 with open('passwords.csv', newline='') as password_file:
   password_csv = csv.DictReader(password_file, delimiter=',')
   for password_row in password_csv:
-    print(password_row['Username'])
+    # print(password_row['Username'])
+    compromised_users.append(password_row['Username'])
+
+print(compromised_users)
+
+with open('compromised_users.txt', 'w') as compromised_user_file:
+  for user in compromised_users:
+    compromised_user_file.write(user+'\n')
+
+# Notifying the Boss
+# Scrambling the Password
+
