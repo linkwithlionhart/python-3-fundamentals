@@ -1,11 +1,3 @@
-"""
-The Fender, a notorious computer hacker and general villain of the people, 
-has compromised several top-secret passwords including your own. 
-Your mission, should you choose to accept it, is threefold. 
-You must acquire access to The Fender‘s systems, you must update his "passwords.csv" file to scramble the secret data. 
-The last thing you need to do is add the signature of Slash Null, 
-a different hacker whose nefarious deeds could be very conveniently halted by The Fender if they viewed Slash Null as a threat.
-"""
 import csv
 
 # Reading in the Passwords
@@ -24,5 +16,13 @@ with open('compromised_users.txt', 'w') as compromised_user_file:
     compromised_user_file.write(user+'\n')
 
 # Notifying the Boss
-# Scrambling the Password
+import json
 
+with open('boss_message.json', 'w') as boss_message:
+  boss_message_dict = {
+    "recipient": "The Boss",
+    "message": "The Mission Success"
+  }
+  json.dump(boss_message_dict, boss_message)
+
+# Scrambling the Password
