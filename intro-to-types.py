@@ -73,8 +73,7 @@ but why is there such a strong need to differentiate the two if each object can 
 This is because each instance of a class can hold different kinds of data.
 
 The data held by an object is referred to as an instance variable. 
-Instance variables aren’t shared by all instances of a class 
-— they are variables that are specific to the object they are attached to.
+Instance variables aren’t shared by all instances of a class — they are variables that are specific to the object they are attached to.
 """
 class Store:
   pass
@@ -86,4 +85,56 @@ isabelles_ices = Store()
 alternative_rocks.store_name = "Alternative Rocks"
 isabelles_ices.store_name = "Isabelle's Ices"
 
-#10/14 attribute functions
+#10/14 attribute functions 
+# if we attempt to access an attribute that is neither classs variable or instance variable of the object Python, it will throw an AttributeError
+
+class NoCustomAttributes:
+  pass
+attributeless = NoCustomAttributes()
+try:
+  attributeless.fake_attribute
+except AttributeError:
+  print("This text gets printed!")
+  # prints "This text gets printed!"
+
+# checking for attributes with hasattr(object, "attribute") and getattr(object, "attribute", optional:defaultDNEvalue)
+hasattr(attributeless, "fake_attribute")
+# returns False
+getattr(attributeless, "other_fake_attribute", 800)
+# returns 800, the default value
+
+can_we_count_it = [{'s': False}, "sassafrass", 18, ["a", "c", "s", "d", "s"]]
+
+for element in can_we_count_it:
+  if hasattr(element, "count"):  
+    print(str(type(element)) + " has the count attribute!")
+  else: 
+    print(str(type(element)) + " does not have the count attribute :(")
+
+#11/14 self
+class Circle:
+  pi = 3.14
+  #class dunder method
+  def __init__(self, diameter):
+    print("Creating circle with diameter {d}".format(d=diameter))
+    # Add assignment for self.radius here:
+    self.radius = diameter/2
+  # reguular class method
+  def circumference(self):
+    return 2*self.pi*self.radius
+
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza.circumference())
+print(teaching_table.circumference())
+print(round_room.circumference())
+
+#12/14 everything is an object, we can use dir() to check on object's attributes
+# print(dir(5))
+
+def this_function_is_an_object(num):
+  return "Cheese is {} times better than everything else".format(num)
+
+print(dir(this_function_is_an_object(7)))
