@@ -138,3 +138,27 @@ def this_function_is_an_object(num):
   return "Cheese is {} times better than everything else".format(num)
 
 print(dir(this_function_is_an_object(7)))
+
+#13/14 string representation with dunder method __repre__(self)
+class Circle:
+  pi = 3.14
+  
+  def __init__(self, diameter):
+    self.radius = diameter / 2
+  
+  def __repr__(self):
+    return f"Circle with radius {self.radius}."
+
+  def area(self):
+    return self.pi * self.radius ** 2
+  
+  def circumference(self):
+    return self.pi * 2 * self.radius
+  
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza, teaching_table, round_room)
+
+#14/14 review
