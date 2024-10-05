@@ -55,3 +55,35 @@ round_room_area = circle.area(11460/2)
 print(pizza_area, teaching_table_area, round_room_area)
 
 #8/14 constructors
+# Dunder methods (abbr: double-under score): special class methods
+class Circle:
+  pi = 3.14
+  
+  # Add constructor here:
+  def __init__(self, diameter):
+    # pass
+    print(f"New circle with diameter: {diameter}")
+  
+teaching_table = Circle(36)
+
+#9/14 instance variables
+"""
+We’ve learned so far that a class is a schematic for a data type and an object is an instance of a class, 
+but why is there such a strong need to differentiate the two if each object can only have the methods and class variables the class has? 
+This is because each instance of a class can hold different kinds of data.
+
+The data held by an object is referred to as an instance variable. 
+Instance variables aren’t shared by all instances of a class 
+— they are variables that are specific to the object they are attached to.
+"""
+class Store:
+  pass
+
+alternative_rocks = Store()
+isabelles_ices = Store()
+
+# instance attributes
+alternative_rocks.store_name = "Alternative Rocks"
+isabelles_ices.store_name = "Isabelle's Ices"
+
+#10/14 attribute functions
