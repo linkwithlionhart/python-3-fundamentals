@@ -30,12 +30,16 @@ class Menu:
     return f"The {self.name} menu is available from {self.start_time} to {self.end_time}."
 
   def calculate_bill(self, purchased_items):
-    for cost in purchased_items.values():
-      bill += cost
+    for purchase in purchased_items:
+      if purchase in self.items:
+        self.bill += self.items[purchase]
+    return self.bill
 
 Brunch = Menu("Brunch", brunch, "11am", "4pm")
 Early_Bird = Menu("Early Bird", early_bird, "3pm", "6pm")
 Dinner = Menu("Dinner", dinner, "5pm", "11pm")
 Kids = Menu("Kids", kids, "11am", "9pm")
 
-print(Brunch, Early_Bird, Dinner, Kids)
+# print(Brunch, Early_Bird, Dinner, Kids)
+print(Brunch.calculate_bill(["pancakes", "home fries", "coffee"]))
+print(Early_Bird.calculate_bill(["salumeria plate", "mushroom ravioli (vegan)"]))
