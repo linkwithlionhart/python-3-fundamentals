@@ -35,11 +35,32 @@ class Menu:
         self.bill += self.items[purchase]
     return self.bill
 
-Brunch = Menu("Brunch", brunch, "11am", "4pm")
+Brunch = Menu("Brunch", brunch, "11", "4pm")
 Early_Bird = Menu("Early Bird", early_bird, "3pm", "6pm")
 Dinner = Menu("Dinner", dinner, "5pm", "11pm")
 Kids = Menu("Kids", kids, "11am", "9pm")
 
 # print(Brunch, Early_Bird, Dinner, Kids)
-print(Brunch.calculate_bill(["pancakes", "home fries", "coffee"]))
-print(Early_Bird.calculate_bill(["salumeria plate", "mushroom ravioli (vegan)"]))
+# print(Brunch.calculate_bill(["pancakes", "home fries", "coffee"]))
+# print(Early_Bird.calculate_bill(["salumeria plate", "mushroom ravioli (vegan)"]))
+
+# Creating the Franchises
+class Franchise:
+  def __init__(self, address, menus):
+    self.address = address
+    self.menus = menus
+  def __repr__(self):
+    return f"Address: {self.address}."
+  # Takes time and returns available menus
+  def available_menus(self, time):
+    pass
+
+flagship_store = Franchise("1232 West End Road", [Brunch, Early_Bird, Dinner, Kids])
+
+new_installment = Franchise("12 East Mulberry Street", [brunch, early_bird, dinner, kids])
+
+# print(flagship_store, new_installment)
+print(flagship_store.menus)
+
+# Next: convert times to military and if input time in range, return relevant menu. Easiest to do without involving a module.
+
