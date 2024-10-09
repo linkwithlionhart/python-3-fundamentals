@@ -1,7 +1,7 @@
 """
 You’ve started a position as the lead programmer for the family-style Italian restaurant Basta Fazoolin’ with My Heart. The restaurant has been doing fantastically and seen a lot of growth lately. You’ve been hired to keep things organized.
 """
-
+# Making the Menus
 brunch = {
   'pancakes': 7.50, 'waffles': 9.00, 'burger': 11.00, 'home fries': 4.50, 'coffee': 1.50, 'espresso': 3.00, 'tea': 1.00, 'mimosa': 10.50, 'orange juice': 3.50
 }
@@ -35,10 +35,10 @@ class Menu:
         self.bill += self.items[purchase]
     return self.bill
 
-Brunch = Menu("Brunch", brunch, "11", "4pm")
-Early_Bird = Menu("Early Bird", early_bird, "3pm", "6pm")
-Dinner = Menu("Dinner", dinner, "5pm", "11pm")
-Kids = Menu("Kids", kids, "11am", "9pm")
+Brunch = Menu("Brunch", brunch, 1100, 1600)
+Early_Bird = Menu("Early Bird", early_bird, 1500, 1800)
+Dinner = Menu("Dinner", dinner, 1700, 2300)
+Kids = Menu("Kids", kids, 1100, 2100)
 
 # print(Brunch, Early_Bird, Dinner, Kids)
 # print(Brunch.calculate_bill(["pancakes", "home fries", "coffee"]))
@@ -53,14 +53,40 @@ class Franchise:
     return f"Address: {self.address}."
   # Takes time and returns available menus
   def available_menus(self, time):
-    pass
+    menu_list = []
+    for menu in self.menus:
+      if time >= menu.start_time and time <= menu.end_time:
+        menu_list.append([menu.name, menu.items])
+    return menu_list
 
-flagship_store = Franchise("1232 West End Road", [Brunch, Early_Bird, Dinner, Kids])
+menus = [Brunch, Early_Bird, Dinner, Kids]
+flagship_store = Franchise("1232 West End Road", menus)
 
-new_installment = Franchise("12 East Mulberry Street", [brunch, early_bird, dinner, kids])
+new_installment = Franchise("12 East Mulberry Street", menus)
 
 # print(flagship_store, new_installment)
-print(flagship_store.menus)
+# print(flagship_store.menus, new_installment.menus)
+# print(flagship_store.available_menus(1200))
+# print(new_installment.available_menus(1700))
 
-# Next: convert times to military and if input time in range, return relevant menu. Easiest to do without involving a module.
+# Creating Businesses!
+class Business:
+  def __init__(self, name, franchises):
+    self.name = name
+    self.franchises = franchises
+
+arepas_menu = {
+  'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50
+}
+
+Arepas = Menu("Arepas", arepas_menu, 1000, 2000)
+arepas_place = Franchise("189 Fitzgerald Avenue", Arepas)
+
+arepa_biz = Business("Take a' Arepa", arepas_place)
+
+print(arepa_biz.name)
+print(arepa_biz.franchises)
+print(arepa_biz.franchises.menus)
+# print(arepa_biz.franchises.available_menus())
+# error
 
