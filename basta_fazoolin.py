@@ -24,12 +24,12 @@ class Menu:
     self.items = items
     self.start_time = start_time
     self.end_time = end_time
-    self.bill = 0
   
   def __repr__(self):
     return f"The {self.name} menu is available from {self.start_time} to {self.end_time}."
 
   def calculate_bill(self, purchased_items):
+    self.bill = 0 # reset bill
     for purchase in purchased_items:
       if purchase in self.items:
         self.bill += self.items[purchase]
@@ -56,7 +56,8 @@ class Franchise:
     menu_list = []
     for menu in self.menus:
       if time >= menu.start_time and time <= menu.end_time:
-        menu_list.append([menu.name, menu.items])
+        # menu_list.append([menu.name, menu.items])
+        menu_list.append(menu)
     return menu_list
 
 menus = [Brunch, Early_Bird, Dinner, Kids]
@@ -91,3 +92,16 @@ print(arepa_biz.franchises)
 print(arepa_biz.franchises.available_menus(1200))
 # print(arepa_biz.franchises.available_menus(1700))
 print(Arepas.calculate_bill(["arepa pabellon", "pernil arepa", "guayanes arepa", "jamon arepa"]))
+
+# Code Review
+"""
+Avoid modifying the `menus` list directly when adding new menus to prevent unintended side effects. Instead, create a new list for each franchise.
+
+arepas_menus = menus + [Arepas]
+"""
+
+"""
+Consider using list comprehensions for more concise and efficient code when filtering available menus.
+
+menu_list = [menu for menu in self.menus if menu.start_time <= time <= menu.end_time]
+"""
