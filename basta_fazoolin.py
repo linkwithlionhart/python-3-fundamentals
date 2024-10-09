@@ -80,13 +80,14 @@ arepas_menu = {
 }
 
 Arepas = Menu("Arepas", arepas_menu, 1000, 2000)
-arepas_place = Franchise("189 Fitzgerald Avenue", Arepas)
+menus.append(Arepas)
+arepas_place = Franchise("189 Fitzgerald Avenue", menus)
 
 arepa_biz = Business("Take a' Arepa", arepas_place)
 
 print(arepa_biz.name)
 print(arepa_biz.franchises)
-print(arepa_biz.franchises.menus)
-# print(arepa_biz.franchises.available_menus())
-# error
-
+# print(arepa_biz.franchises.menus)
+print(arepa_biz.franchises.available_menus(1200))
+# print(arepa_biz.franchises.available_menus(1700))
+print(Arepas.calculate_bill(["arepa pabellon", "pernil arepa", "guayanes arepa", "jamon arepa"]))
