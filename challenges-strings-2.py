@@ -57,3 +57,48 @@ print(count_multi_char_x("mississippi", "iss"))
 # should print 2
 print(count_multi_char_x("apple", "pp"))
 # should print 1
+
+#4 Substring Between
+"""
+Define the function to accept three parameters, one string and two characters
+find the starting index of our substring using the second input parameter
+find the ending index of our substring using the third input parameter
+If neither of the indices are -1, return the portion of the first input parameter string between the starting and ending indices (not including the starting and ending index)
+If either of the indices are -1, that means the start or end of the substring didn’t exist in our string. Return the original string in this case.
+"""
+# Write your substring_between_letters function here:
+
+def substring_between_letters(word, start, end):
+  start_index = word.find(start)
+  end_index = word.find(end)
+  # print(start_index, end_index)
+  if start_index == -1 or end_index == -1:
+    return word
+  else:
+    return word[start_index+1:end_index]
+
+# Uncomment these function calls to test your function:
+print(substring_between_letters("apple", "p", "e"))
+# should print "pl"
+print(substring_between_letters("apple", "p", "c"))
+# should print "apple"
+
+#5 X Length
+"""
+Define the function to accept two parameters, one string, and one number
+Split up the sentence into an array of words
+Loop through the words. If the length of any of the words is less than the provided number return False
+If we made it through the loop without returning False then return True
+"""
+# Write your x_length_words function here:
+def x_length_words(sentence, x):
+  for word in sentence.split():
+    if len(word) < x:
+      return False
+  return True
+
+# Uncomment these function calls to test your tip function:
+print(x_length_words("i like apples", 2))
+# should print False
+print(x_length_words("he likes apples", 2))
+# should print True
