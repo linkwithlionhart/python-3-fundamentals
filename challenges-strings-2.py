@@ -152,3 +152,78 @@ print(every_other_letter("Hello world!"))
 # should print Hlowrd
 print(every_other_letter(""))
 # should print  
+
+#8 Reverse
+# Write your reverse_string function here:
+def reverse_string(word):
+  rev_word = ""
+  for i in range(len(word)-1, -1, -1):
+    rev_word += word[i]
+  return rev_word
+
+# Uncomment these function calls to test your  function:
+print(reverse_string("Codecademy"))
+# should print ymedacedoC
+print(reverse_string("Hello world!"))
+# should print !dlrow olleH
+print(reverse_string(""))
+# should print
+
+#9 Make Spoonerism
+"""
+Define the function to accept two parameters for our two words
+Get the first character of the first word and the first character of the second word
+Get the remaining characters of the first word and the remaining characters of the second word.
+Append the first character of the second word to the remaining character of the first word
+Append a space character
+Append the first character of the first word to the remaining characters of the second word.
+Return the result
+"""
+# Write your make_spoonerism function here:
+
+def make_spoonerism(word1, word2):
+  first_word = word2[0] + word1[1:]
+  second_word = word1[0] + word2[1:]
+  return f"{first_word} {second_word}"
+
+# Uncomment these function calls to test your function:
+print(make_spoonerism("Codecademy", "Learn"))
+# should print Lodecademy Cearn
+print(make_spoonerism("Hello", "world!"))
+# should print wello Horld!
+print(make_spoonerism("a", "b"))
+# should print b a
+
+# Solution
+# def make_spoonerism(word1, word2):
+#   return word2[0]+word1[1:]+" "+word1[0]+word2[1:]
+
+#10 Add Exclamation
+"""
+Define the function to accept one parameter for our string
+Loop while the length of our input string is less than 20
+Inside the loop, append an exclamation mark
+Once done, return the result
+"""
+# Write your add_exclamation function here:
+
+def add_exclamation(word):
+  count = len(word)
+  mod_word = word
+  while(count < 20):
+    mod_word += "!"
+    count = len(mod_word)
+  else:
+    return mod_word
+
+# Uncomment these function calls to test your function:
+print(add_exclamation("Codecademy"))
+# should print Codecademy!!!!!!!!!!
+print(add_exclamation("Codecademy is the best place to learn"))
+# should print Codecademy is the best place to learn
+
+# Solution
+def add_exclamation(word):
+  while(len(word) < 20):
+    word += "!"
+  return word
