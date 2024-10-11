@@ -195,8 +195,8 @@ print(make_spoonerism("a", "b"))
 # should print b a
 
 # Solution
-# def make_spoonerism(word1, word2):
-#   return word2[0]+word1[1:]+" "+word1[0]+word2[1:]
+def make_spoonerism(word1, word2):
+  return word2[0]+word1[1:]+" "+word1[0]+word2[1:]
 
 #10 Add Exclamation
 """
