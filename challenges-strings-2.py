@@ -102,3 +102,53 @@ print(x_length_words("i like apples", 2))
 # should print False
 print(x_length_words("he likes apples", 2))
 # should print True
+
+#6 Check Name
+"""
+Define the function to accept two parameters, one string for the sentence and one string for the name
+Convert all of the strings to the same case so we don’t have to worry about differences in capitalization
+Check if the name is within the sentence. If so, then return True. Otherwise, return False
+"""
+# Write your check_for_name function here:
+
+"""def check_for_name(sentence, name):
+  lower_sentence = sentence.lower().split()
+  lower_name = name.lower()
+  if lower_name in lower_sentence:
+    return True
+  return False"""
+
+def check_for_name(sentence, name):
+  return name.lower() in sentence.lower()
+
+# Uncomment these function calls to test your  function:
+print(check_for_name("My name is Jamie", "Jamie"))
+# should print True
+print(check_for_name("My name is jamie", "Jamie"))
+# should print True
+print(check_for_name("My name is Samantha", "Jamie"))
+# should print False
+
+#7 Every Other Letter
+"""
+Define the function to accept one parameter for the string
+Create a new empty string to hold every other letter from the input string
+Loop through the input string while incrementing by two every time
+Inside the loop, append the character at the current location to the new string we initialized earlier
+Return the new string
+"""
+# Write your every_other_letter function here:
+
+def every_other_letter(word):
+  other_string = ""
+  for i in range(0, len(word), 2):
+    other_string += word[i]
+  return other_string
+
+# Uncomment these function calls to test your function:
+print(every_other_letter("Codecademy"))
+# should print Cdcdm
+print(every_other_letter("Hello world!"))
+# should print Hlowrd
+print(every_other_letter(""))
+# should print  
