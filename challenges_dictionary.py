@@ -187,3 +187,49 @@ Loop through every value in our dictionary
 Inside the loop, if the value is not already in our list, append the value to our list
 After the loop, return the length of our list  
 """
+# Write your unique_values function here:
+def unique_values(my_dictionary):
+  unique = []
+  for value in my_dictionary.values():
+    if value not in unique:
+      unique.append(value)
+  return len(unique)
+
+# Uncomment these function calls to test your  function:
+print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+
+#9 Count First Letter
+"""
+Define the function to accept one parameter for our dictionary
+Create a new empty dictionary called letters
+Loop through every key in our names dictionary
+Inside the loop, get the first letter of the last name we are looking at. If the first letter is not in our letter dictionary, add it as a key and set the value to the number of people that have that last name. Otherwise, if the first letter is already in our letter dictionary, increment the value stored with that key by the number of people that have that last name
+After the loop, return the letters dictionary
+"""
+# Write your count_first_letter function here:
+def count_first_letter(names):
+  counts = {}
+  for key, value in names.items():
+    if key[:1] not in counts:
+      counts[key[:1]] = 0
+    counts[key[:1]] += len(value)
+  return counts
+
+# Uncomment these function calls to test your  function:
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}
+
+# Solution
+def count_first_letter(names):
+  letters = {}
+  for key in names:
+    first_letter = key[0]
+    if first_letter not in letters:
+      letters[first_letter] = 0
+    letters[first_letter] += len(names[key])
+  return letters
