@@ -118,8 +118,14 @@ def max_key(my_dictionary):
   return largest_key
 
 #6 Word Length Dict
+"""
+Define the function to accept one parameter for our list of strings
+Create a new empty dictionary
+Loop through every string in the list of strings
+Inside the loop, add the string as a key and the length of the string as the value to the dictionary
+After the loop, return the new dictionary
+"""
 # Write your word_length_dictionary function here:
-
 # Using dictionary.update() method
 """def word_length_dictionary(words):
   new_dict = {}
@@ -139,3 +145,45 @@ print(word_length_dictionary(["apple", "dog", "cat"]))
 # should print {"apple":5, "dog": 3, "cat":3}
 print(word_length_dictionary(["a", ""]))
 # should print {"a": 1, "": 0}
+
+#7 Frequency Count
+"""
+Define the function to accept one parameter for our list of strings
+Create a new empty dictionary
+Loop through every string in the list of strings
+Inside the loop, if the string is NOT already in our dictionary, store the string as a key with a value of 0 in our dictionary. Otherwise, if the string is already in our dictionary, increment the value by 1.
+After the loop, return the new dictionary
+"""
+# Write your frequency_dictionary function here:
+
+def frequency_dictionary(words):
+  word_freq = {}
+  for word in words:
+    if word not in word_freq:
+      word_freq[word] = 1
+    else: word_freq[word] += 1
+  return word_freq
+
+# Uncomment these function calls to test your  function:
+print(frequency_dictionary(["apple", "apple", "cat", 1]))
+# should print {"apple":2, "cat":1, 1:1}
+print(frequency_dictionary([0,0,0,0,0]))
+# should print {0:5}
+
+# Solution
+def frequency_dictionary(words):
+  freqs = {}
+  for word in words:
+    if word not in freqs:
+      freqs[word] = 0
+    freqs[word] += 1
+  return freqs
+
+#8 Unique Values
+"""
+Define the function to accept one parameter for our dictionary
+Create a new empty list
+Loop through every value in our dictionary
+Inside the loop, if the value is not already in our list, append the value to our list
+After the loop, return the length of our list  
+"""
